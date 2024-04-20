@@ -12,3 +12,14 @@ function getTokenAndTask(taskName) {
         task: task
     }
 }
+
+function sendAnswer(answer, token) {
+    return UrlFetchApp.fetch('https://tasks.aidevs.pl/answer/' + token, {
+      'method': 'post',
+      'contentType': 'application/json',
+      'payload': JSON.stringify({
+        'answer': answer
+      })
+    })
+  }
+  
